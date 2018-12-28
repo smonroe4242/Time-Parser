@@ -14,17 +14,17 @@ make
 
 ## Dependencies
 
-*stdlib.h and string.h functions are used for memory management and string manipulation.
+*	stdlib.h and string.h functions are used for memory management and string manipulation.
 
-*stdio.h is used for output (printf).
+*	stdio.h is used for output (printf).
 
-*fcntl.h functions are used for file manipulation.
+*	fcntl.h functions are used for file manipulation.
 
-*regex.h is used for parsing.
+*	regex.h is used for parsing.
 
-*A personal library implementation of get_line from C++ makes file reading easier (get_next_line()).
+*	A personal library implementation of get_line from C++ makes file reading easier (get_next_line()).
 
-*libft.h, the abovementioned library, is included for this purpose, and will be compiled and linked on make.
+*	libft.h, the abovementioned library, is included for this purpose, and will be compiled and linked on make.
 
 ## Specifications
 
