@@ -1,4 +1,3 @@
-aakim [8:06 PM]
 Please write a computer program in C to run on a Linux computer using
 the GNU compiler as part of your technical skills assessment.
 

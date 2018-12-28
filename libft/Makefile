@@ -6,7 +6,7 @@
 #    By: smonroe <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/16 06:21:48 by smonroe           #+#    #+#              #
-#    Updated: 2018/08/27 17:29:10 by smonroe          ###   ########.fr        #
+#    Updated: 2018/12/28 06:45:17 by smonroe          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -57,14 +57,14 @@ OBJ = ft_bzero.o ft_memset.o ft_memcpy.o ft_memccpy.o\
 all: $(NAME)
 
 $(NAME):
-	@gcc -c -Wall -Werror -Wextra $(SRC)
-	@ar rc $(NAME) $(OBJ)
+	gcc -c -Wall -Werror -Wextra $(SRC)
+	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 clean:
-	@rm -rf *~ \#*\# $(OBJ)
+	rm -rf *~ \#*\# $(OBJ)
 
 fclean: clean
-	@rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re: fclean $(NAME) clean

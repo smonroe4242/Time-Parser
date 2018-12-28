@@ -6,38 +6,22 @@
 /*   By: smonroe <scmonroe96@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 20:59:38 by smonroe           #+#    #+#             */
-/*   Updated: 2018/12/28 05:22:07 by smonroe          ###   ########.fr       */
+/*   Updated: 2018/12/28 06:37:01 by smonroe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <string.h>
-#include <regex.h>
-#include "libft/libft.h"
-#define NUM_MATCH 2
-#define ERR_SIZE 256
-#define THRESHOLD 20
-#define BITSWAP(x, y) (((x) ^= (y)) ((y)^= (x)) ((x) ^= (y)))
+#include "getajob.h"
 
-struct				s_node
+t_link *new_node(char *early, char *later)
 {
-	char 			*early;
-	char 			*later;
-	struct s_node 	*next;	
-};
-
-struct s_node *new_node(char *early, char *later)
-{
-	struct s_node *tmp = (struct s_node *)malloc(sizeof(struct s_node));
+	t_link *tmp = (t_link *)malloc(sizeof(t_link));
 	tmp->early = strdup(early);
 	tmp->later = strdup(later);
 	tmp->next = 0;
 	return tmp;
 }
 
-void	print_list(struct s_node *node)
+void	print_list(t_link *node)
 {
 	if (!node)
 		return ;
@@ -90,10 +74,10 @@ char	**match(regex_t *re, char *line)
 	return (matches);
 }
 
-void	parse_line(char *line, struct s_node **head, regex_t *re)
+void	parse_line(char *line, t_link **head, regex_t *re)
 {
 	//find early:late, fill struct, and append to list
-	struct s_node	*tmp = *head;
+	t_link	*tmp = *head;
 	char			**matches = 0;
 
 	if (!line)
@@ -119,7 +103,7 @@ void	parse_file(char *file, regex_t *iso, regex_t *std)
 {
 	int		fd = -1;
 	char	*line = 0;
-	struct s_node *head = 0;
+	t_link *head = 0;
 
 	if (!file)
 		return ;
