@@ -22,8 +22,6 @@ fcntl.h functions are used for file manipulation.
 
 Parsing of lines is done with regex.h.
 
-Information is stored and retrieved using a singly linked list.
-
 A personal library implementation of get_line from C++ makes file reading easier (get_next_line()).
 
 libft.h, the abovementioned library, is included for this purpose, and will be compiled by the provided Makefile.
@@ -40,7 +38,9 @@ Files are formatted as follows:
 
 		ISO 24h format (YYYY-MM-DD hh:mm)
 
-		12h am-pm format (hh:mm [a|p]m)
+or
+
+		12h format (hh:mm [a|p]m)
 
 	Entries on the same line will have the same format
 
