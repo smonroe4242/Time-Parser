@@ -10,14 +10,17 @@ make
 ./timeparser logfile
 ```
 
-## Source
+## Dependencies
 
+stdlib.h and string.h functions are used for memory management and string manipulation.
+stdio.h is used for output (printf).
 fcntl.h functions are used for file manipulation.
 Parsing of lines is done with regex.h.
 Information is stored and retrieved using a singly linked list.
+A personal library implementation of get_line from C++ makes file reading easier (get_next_line()).
+libft.h, the abovementioned library, is included for this purpose, and will be compiled by the provided Makefile.
 
-
-### Specifications
+## Specifications
 Time-Parser can handle multiple input files.
 Files are formatted as follows:
 	Two column entries per line
