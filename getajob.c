@@ -6,7 +6,7 @@
 /*   By: smonroe <scmonroe96@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 20:59:38 by smonroe           #+#    #+#             */
-/*   Updated: 2018/12/28 07:10:39 by smonroe          ###   ########.fr       */
+/*   Updated: 2018/12/28 08:10:04 by smonroe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,36 @@ void	error_reg(regex_t *re, int errcode)
 	regerror(errcode, re, errbuf, ERR_SIZE);
 	printf("[%s]\n", errbuf);
 }
-/*
-char **order(char **m)
+
+char **order(char **time)
 {
 	//get raw time value, compare, swap if needed, return.
+	int raw_a = 0, raw_b = 0, tmp = 0;
+
+	if (strlen(time[0]) < 9)
+	{
+		tmp = atoi(time[0]);
+		if (tmp != 12 && strchr(time[0], 'p'))
+			tmp += 12;
+		raw_a = 60 * tmp + atoi(strchr(time[0], ':') + 1);
+		tmp = atoi(time[1]);
+		if (tmp != 12 && strchr(time[1], 'p'))
+			tmp += 12;
+		raw_b = 60 * tmp + atoi(strchr(time[1], ':') + 1);
+	}
+	else
+	{
+		raw_a = atoi(strchr(time[0], ' ') + 1) * 60 + atoi(strchr(time[0], ':') + 1);
+		raw_b = atoi(strchr(time[1], ' ') + 1) * 60 + atoi(strchr(time[1], ':') + 1);
+	}
+	if (raw_a > raw_b) {
+		char *swap = time[0];
+		time[0] = time[1];
+		time[1] = swap;
+	}
+	return time;
 }
-*/
+
 char	**match(regex_t *re, char *line)
 {
 	int			status = 0;
@@ -73,7 +97,7 @@ char	**match(regex_t *re, char *line)
 			matches[i][j] = *line++;
 		matches[i][diff] = 0;
 	}
-	return (matches);
+	return (order(matches));
 }
 
 void	parse_line(char *line, t_link **head, regex_t *re)
