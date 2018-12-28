@@ -14,17 +14,17 @@ make
 
 ## Dependencies
 
-stdlib.h and string.h functions are used for memory management and string manipulation.
+*stdlib.h and string.h functions are used for memory management and string manipulation.
 
-stdio.h is used for output (printf).
+*stdio.h is used for output (printf).
 
-fcntl.h functions are used for file manipulation.
+*fcntl.h functions are used for file manipulation.
 
-Parsing of lines is done with regex.h.
+*regex.h is used for parsing.
 
-A personal library implementation of get_line from C++ makes file reading easier (get_next_line()).
+*A personal library implementation of get_line from C++ makes file reading easier (get_next_line()).
 
-libft.h, the abovementioned library, is included for this purpose, and will be compiled by the provided Makefile.
+*libft.h, the abovementioned library, is included for this purpose, and will be compiled and linked on make.
 
 ## Specifications
 
@@ -32,10 +32,10 @@ Time-Parser can handle multiple input files.
 
 Files are formatted as follows:
 
-	Two column entries per line
+*	Two column entries per line
 
-	Entries are in either ISO 24h format (YYYY-MM-DD hh:mm) or 12h format (hh:mm [a|p]m)
+*	Entries are in either ISO 24h format (YYYY-MM-DD hh:mm) or 12h format (hh:mm [a|p]m)
 
-	Entries on the same line will have the same format
+*	Entries on the same line will have the same format
 
 Time-Parser trusts that the input files are well formed.
