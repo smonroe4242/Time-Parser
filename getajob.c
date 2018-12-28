@@ -6,7 +6,7 @@
 /*   By: smonroe <scmonroe96@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/27 20:59:38 by smonroe           #+#    #+#             */
-/*   Updated: 2018/12/28 06:37:01 by smonroe          ###   ########.fr       */
+/*   Updated: 2018/12/28 07:10:39 by smonroe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ t_link *new_node(char *early, char *later)
 
 void	print_list(t_link *node)
 {
-	if (!node)
+	if (!node) {
+		printf("\n");
 		return ;
+	}
 	printf("[%s]\n", node->early);
 	print_list(node->next);
 	printf("[%s]\n", node->later);
@@ -114,6 +116,8 @@ void	parse_file(char *file, regex_t *iso, regex_t *std)
 	while (get_next_line(fd, &line) > 0)
 		parse_line(line, &head, (strlen(line) > THRESHOLD) ? iso : std);
 	print_list(head);
+	if (close(fd))
+		printf("Error closing file descriptor for %s, continuing anyways.\n", file);
 }
 
 int		main(int ac, char **av)
@@ -122,7 +126,7 @@ int		main(int ac, char **av)
 	regex_t iso, std;
 
 	if (ac < 2)
-		printf("Usage: ./time-report [input files]\n");
+		printf("Usage: ./timeparse [input files]\n");
 	else
 	{
 		status = regcomp(&iso, "([0-9]{4}-[0-9]{1,2}-[0-9]{1,2} [0-9]{1,2}:[0-9]{2})", REG_EXTENDED);
