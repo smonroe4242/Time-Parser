@@ -34,13 +34,7 @@ Files are formatted as follows:
 
 	Two column entries per line
 
-	Entries are in either:
-
-		ISO 24h format (YYYY-MM-DD hh:mm)
-
-or
-
-		12h format (hh:mm [a|p]m)
+	Entries are in either ISO 24h format (YYYY-MM-DD hh:mm) or 12h format (hh:mm [a|p]m)
 
 	Entries on the same line will have the same format
 
